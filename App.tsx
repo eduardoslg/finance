@@ -15,7 +15,16 @@ export default function App() {
     console.log("subtraiu!");
     if(valor > 0){
       setValor(valor - 1);
+    }else{
+      alert("não há como diminuir o valor!");
     }
+  }
+
+  function resetar(){
+    if(valor === 0){
+      alert("não há como resetar um valor igual à 0")
+    }
+    setValor(0);
   }
 
   return (
@@ -23,7 +32,7 @@ export default function App() {
       <Text>{valor}</Text>
       <Button title='Somar' onPress={somar} />
       <Button title='Subtrair' onPress={subtrair} />
-      <Button title='Resetar' onPress={() => setValor(0)} />
+      <Button title='Resetar' onPress={resetar} />
       <StatusBar style="auto" />
     </View>
   );
@@ -38,8 +47,5 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-  },
-  button: {
-    marginTop: '25px',
   }
 });
